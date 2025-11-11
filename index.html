@@ -80,26 +80,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <script>
-  function setCookie(value) {
-    // Session cookie: no expires or max-age
-    document.cookie = "consent=" + value + "; path=/";
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const denyBtn = document.getElementById('cookie-deny');
+
+  // Helper to check if cookie exists
+  function getCookie(name) {
+    return document.cookie.split('; ').find(row => row.startsWith(name + '='));
   }
 
-  if (document.cookie.includes("consent=accepted") ||
-      document.cookie.includes("consent=denied")) {
-    document.getElementById("cookie-banner").style.display = "none";
+  // Hide banner if cookie already exists
+  if (getCookie('consent')) {
+    banner.style.display = 'none';
   }
 
-  document.getElementById("cookie-accept").onclick = () => {
-    setCookie("accepted");
-    document.getElementById("cookie-banner").style.display = "none";
-  };
+  // Accept: set a session cookie (expires when tab/browser closes)
+  acceptBtn.addEventListener('click', () => {
+    document.cookie = "consent=accepted; path=/"; // session cookie
+    banner.style.display = 'none';
+  });
 
-  document.getElementById("cookie-deny").onclick = () => {
-    setCookie("denied");
-    document.getElementById("cookie-banner").style.display = "none";
-  };
+  // Deny: just hide banner
+  denyBtn.addEventListener('click', () => {
+    banner.style.display = 'none';
+  });
 </script>
+
 
 <!-- End Cookie Consent Banner -->
 
