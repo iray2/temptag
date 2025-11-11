@@ -81,9 +81,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
   function setCookie(value) {
-    const d = new Date();
-    d.setMonth(d.getMonth() + 6);
-    document.cookie = "consent=" + value + "; expires=" + d.toUTCString() + "; path=/";
+    // Session cookie: no expires or max-age
+    document.cookie = "consent=" + value + "; path=/";
   }
 
   if (document.cookie.includes("consent=accepted") ||
@@ -101,6 +100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.getElementById("cookie-banner").style.display = "none";
   };
 </script>
+
 <!-- End Cookie Consent Banner -->
 
 
