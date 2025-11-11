@@ -46,34 +46,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button type="submit">Submit</button>
     </form>
 
-    <!-- Cookie Consent Banner -->
-<div class="cky-consent-container cky-banner-bottom" aria-label="We use cookies" role="region" tabindex="-1">
-  <div class="cky-consent-bar" data-cky-tag="notice" style="border-color: #f4f4f4; background-color: #FFFFFF;">
+  <!-- Cookie Consent Banner -->
+<div id="cookie-banner"
+     class="cky-consent-container cky-banner-bottom"
+     aria-label="We use cookies"
+     role="region"
+     tabindex="-1">
+  <div class="cky-consent-bar" style="border-color:#f4f4f4; background:#fff;">
     <div class="cky-notice">
-      <p class="cky-title" aria-level="1" data-cky-tag="title" role="heading" style="color: #212121;">We use cookies</p>
+      <p class="cky-title" style="color:#212121;">We use cookies</p>
+
       <div class="cky-notice-group">
-        <div class="cky-notice-des" data-cky-tag="description" style="color: #212121;">
+        <div class="cky-notice-des" style="color:#212121;">
           <p>
-            We need your consent to use cookies that improve your experience on our site and display personalized content and ads.
-            <a href="https://montreal.ca/en/topics/confidentiality-policy" class="cky-policy" target="_blank" rel="noopener" style="color:#1863dc; background-color:transparent;">
-              Cookie policy
-            </a>
+            We need your consent to set a cookie.
           </p>
         </div>
 
-        <div class="cky-notice-btn-wrapper" data-cky-tag="notice-buttons">
-          <button class="cky-btn cky-btn-customize" style="color:#097d6c; border-color:#097d6c; background-color:transparent;">
-            Personalize
+        <div class="cky-notice-btn-wrapper">
+          <button id="cookie-deny"
+                  style="color:#097d6c; border-color:#097d6c; background:transparent;">
+            Deny
           </button>
-          <button class="cky-btn cky-btn-accept" style="color:#fff; border-color:#097d6c; background-color:#097d6c;">
-            Accept all
+
+          <button id="cookie-accept"
+                  style="color:#fff; border-color:#097d6c; background:#097d6c;">
+            Accept
           </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  function setCookie(value) {
+    const d = new Date();
+    d.setMonth(d.getMonth() + 6);
+    document.cookie = "consent=" + value + "; expires=" + d.toUTCString() + "; path=/";
+  }
+
+  if (document.cookie.includes("consent=accepted") ||
+      document.cookie.includes("consent=denied")) {
+    document.getElementById("cookie-banner").style.display = "none";
+  }
+
+  document.getElementById("cookie-accept").onclick = () => {
+    setCookie("accepted");
+    document.getElementById("cookie-banner").style.display = "none";
+  };
+
+  document.getElementById("cookie-deny").onclick = () => {
+    setCookie("denied");
+    document.getElementById("cookie-banner").style.display = "none";
+  };
+</script>
 <!-- End Cookie Consent Banner -->
+
 
   </body>
 </html>
