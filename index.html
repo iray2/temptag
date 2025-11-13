@@ -2,21 +2,6 @@
 <html>
   <head>
     
-<script>
-// Define dataLayer and the gtag function.
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-
-// Set default consent to 'denied' as a placeholder
-// Determine actual values based on your own requirements
-gtag('consent', 'default', {
-  'ad_storage': 'denied',
-  'ad_user_data': 'denied',
-  'ad_personalization': 'denied',
-  'analytics_storage': 'denied'
-});
-</script>
-    
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TP5XY5YGX4"></script>
 <script>
@@ -25,6 +10,13 @@ gtag('consent', 'default', {
   gtag('js', new Date());
 
   gtag('config', 'G-TP5XY5YGX4');
+
+  gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied'
+});
 </script>
 
 <!-- Create one update function for each consent parameter. The example had one but I'm gonna put the remaining three in same script block. -->
