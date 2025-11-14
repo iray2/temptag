@@ -145,10 +145,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // Accept: set a session cookie (expires when tab/browser closes). I added the fucntion calls here.
   acceptBtn.addEventListener('click', () => {
     document.cookie = "consent=accepted; path=/"; // session cookie
-    consentGrantedAdUserData();       
-    consentGrantedAdPersonalization(); 
-    consentGrantedAnalyticsStorage();  
-    consentGrantedAdStorage();         
+    consentGrantedAdUserData;       
+    consentGrantedAdPersonalization; 
+    consentGrantedAnalyticsStorage;  
+    consentGrantedAdStorage;         
     banner.style.display = 'none';
   });
 
