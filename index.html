@@ -22,30 +22,14 @@
 
 <!-- Create one update function for each consent parameter. The example had one but I'm gonna put the remaining three in same script block. -->
 <script>
-  function consentGrantedAdUserData() {
+  function grantAllConsent(){
     gtag('consent', 'update', {
-      'ad_user_data': 'granted'
-    });
-  }
-
-  function consentGrantedAdPersonalization() {
-    gtag('consent', 'update', {
-      'ad_personalization': 'granted'
-    });
-  }
-
-  function consentGrantedAnalyticsStorage() {
-    gtag('consent', 'update', {
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
       'analytics_storage': 'granted'
     });
-  }
-
-  function consentGrantedAdStorage() {
-    gtag('consent', 'update', {
-      'ad_storage': 'granted'
-    });
-  }
-</script>
+  </script>
     
 
 
@@ -146,10 +130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // Accept: set a session cookie (expires when tab/browser closes). I added the fucntion calls here.
   acceptBtn.addEventListener('click', () => {
     document.cookie = "consent=accepted; path=/"; // session cookie
-    consentGrantedAdUserData();       
-    consentGrantedAdPersonalization(); 
-    consentGrantedAnalyticsStorage();  
-    consentGrantedAdStorage();         
+    grantAllConsent();            
     banner.style.display = 'none';
   });
 
